@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>蜂鸟电竞 · 从细节看见数据</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            background: #f5f3f0;
+            color: #1e1e1e;
+        }
+
+        .hero {
+            background: linear-gradient(145deg, #12141c 0%, #1e2330 100%);
+            padding: 4rem 2rem 3.2rem;
+            text-align: center;
+            border-bottom: 4px solid #eaa84b;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: repeating-linear-gradient(90deg, #eaa84b 0px, #eaa84b 12px, transparent 12px, transparent 24px);
+        }
+
+        .hero h1 {
+            font-size: 2.4rem;
+            font-weight: 500;
+            letter-spacing: 3px;
+            color: #f0ede8;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero .sub {
+            font-size: 1rem;
+            color: #cbc6bd;
+            letter-spacing: 1.5px;
+            border-top: 1px solid #3d3f4b;
+            display: inline-block;
+            padding-top: 0.6rem;
+            margin-top: 0.2rem;
+        }
+
+        .tagline {
+            margin-top: 1.8rem;
+            font-size: 1.05rem;
+            color: #dfd9cf;
+            max-width: 640px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 2.6rem 1.5rem 3rem;
+        }
+
+        .intro-card {
+            background: white;
+            border-radius: 18px;
+            padding: 2.2rem 2rem;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.04);
+            margin-bottom: 2.2rem;
+        }
+
+        .intro-card h2 {
+            font-size: 1.5rem;
+            font-weight: 490;
+            color: #1e1e1e;
+            margin-bottom: 0.9rem;
+            padding-bottom: 0.3rem;
+            border-left: 4px solid #eaa84b;
+            padding-left: 0.8rem;
+        }
+
+        .intro-card p {
+            margin-bottom: 1.2rem;
+            color: #2c2c2c;
+        }
+
+        .intro-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        a {
+            color: #b6712a;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+            text-decoration-thickness: 1px;
+            transition: color 0.2s;
+        }
+
+        a:hover {
+            color: #804f1b;
+            text-decoration-thickness: 2px;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin: 1.8rem 0 0.8rem;
+        }
+
+        .feature-item {
+            background: #f8f6f2;
+            padding: 0.8rem 1rem;
+            border-radius: 40px;
+            font-size: 0.95rem;
+            color: #2b2b2b;
+            border: 1px solid #e6ddd2;
+        }
+
+        .feature-item span {
+            font-weight: 500;
+            color: #b6712a;
+            margin-right: 0.35rem;
+        }
+
+        .faq-block {
+            background: #f1eee9;
+            border-radius: 16px;
+            padding: 1.6rem 1.8rem;
+            margin: 2.5rem 0 1.2rem;
+        }
+
+        .faq-block h3 {
+            font-size: 1.15rem;
+            font-weight: 500;
+            margin-bottom: 0.9rem;
+            color: #1f1f1f;
+        }
+
+        .faq-block details {
+            margin-bottom: 0.4rem;
+            border-bottom: 1px dashed #d5cdc0;
+            padding: 0.35rem 0;
+        }
+
+        .faq-block details summary {
+            cursor: pointer;
+            color: #2e2e2e;
+            padding: 0.3rem 0;
+            font-weight: 450;
+            list-style: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .faq-block details summary::before {
+            content: "▸";
+            margin-right: 0.6rem;
+            color: #b6712a;
+            transition: transform 0.2s;
+        }
+
+        .faq-block details[open] summary::before {
+            transform: rotate(90deg);
+        }
+
+        .faq-block details p {
+            margin: 0.4rem 0 0.8rem 1.5rem;
+            color: #3d3d3d;
+            font-size: 0.95rem;
+        }
+
+        .footnote {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 1.8rem 1rem;
+            border-top: 1px solid #ddd6ca;
+            color: #6e6b64;
+            font-size: 0.95rem;
+        }
+
+        .footnote a {
+            color: #7b5d3a;
+        }
+
+        .footnote .heart {
+            color: #b6712a;
+            margin: 0 4px;
+        }
+
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 1.8rem;
+                letter-spacing: 2px;
+            }
+
+            .hero {
+                padding: 3rem 1.2rem 2.4rem;
+            }
+
+            .container {
+                padding: 1.6rem 1rem 2.4rem;
+            }
+
+            .intro-card {
+                padding: 1.6rem 1.2rem;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr;
+                gap: 0.6rem;
+            }
+
+            .faq-block {
+                padding: 1.2rem 1rem;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+
+            .tagline {
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<section class="hero">
+    <h1>蜂鸟电竞</h1>
+    <div class="sub">不只是数据 · 更是态度</div>
+    <div class="tagline">
+        一个围绕电竞赛事与玩家社区的信息聚合站，<br>
+        用平实的视角记录赛场内外的真实痕迹。
+    </div>
+</section>
+
+<div class="container">
+
+    <div class="intro-card">
+        <h2>关于这个站点</h2>
+        <p>
+            <a href="https://fengniaoscore.com">蜂鸟电竞</a> 最初只是几个朋友之间分享赛程与比分的小角落，
+            后来慢慢长成了一个涵盖赛事日历、队伍动态、历史交锋的小型资料库。
+            这里没有花哨的预测算法，也不制造情绪化的标题；更想做的，是把那些散落在各处的信息整理干净，让你在需要的时候能够快速找到。
+        </p>
+        <p>
+            无论是想回顾上周的决胜局细节，还是想看看某支队伍在特定地图上的表现记录，这里都尽量保留客观的原始样貌。
+            站内的每一条数据都来自公开可验证的渠道，更新节奏也跟随主流赛事的时间线走。
+        </p>
+    </div>
+
+    <div class="intro-card">
+        <h2>为什么可以信任这里</h2>
+        <p>
+            我们不做“独家内幕”或“猛料爆料”——那些东西听起来刺激，但往往经不起推敲。
+            蜂鸟电竞的内容逻辑很简单：<strong>来源清楚、标注明确、不混入主观推测</strong>。
+            赛事结果、选手变动、版本更新这些信息，要么引自官方公告，要么来自多方比对后的一致口径。
+        </p>
+        <p>
+            另外，站内提供了简单的交叉索引功能：同一场比赛可以从赛程、战队、选手三个入口找到对应的记录，
+            这样如果你对某条数据有疑问，可以自己顺着来源去验证。
+            这种设计谈不上创新，但至少让人心里踏实。
+        </p>
+        <div class="feature-grid">
+            <div class="feature-item"><span>✓</span> 数据均标注原始出处</div>
+            <div class="feature-item"><span>✓</span> 赛程与结果逐场人工核对</div>
+            <div class="feature-item"><span>✓</span> 无广告弹窗 / 无诱导分享</div>
+            <div class="feature-item"><span>✓</span> 页面结构清晰，加载轻量</div>
+        </div>
+    </div>
+
+    <div class="intro-card">
+        <h2>适合谁、怎么用</h2>
+        <p>
+            如果你是那种赛前喜欢翻一翻过往交手记录的人，或者赛后想快速找到完整比分而不是只看一张截图，
+            那么这里可能会对你的胃口。网站没有强制注册，大部分内容打开就能看，搜索功能也直接放在顶部。
+        </p>
+        <p>
+            日常使用场景大致是这样：周末打开赛事日历看看接下来有哪些场次，点进战队页面浏览近期的阵容和胜负曲线；
+            或者单纯在闲暇时翻翻选手的高光集锦索引，当作了解当前版本的参考。
+            所有内容都按照赛季和赛事归类，不会让你在层层菜单里迷路。
+        </p>
+        <p style="margin-top:1rem;">
+            如果你也想参与完善——比如发现某条历史数据有误，或者想补充某个小型赛事的记录，
+            可以通过站内反馈渠道留言。我们不是团队，更像是一群愿意花时间整理东西的爱好者。
+        </p>
+    </div>
+
+    <div class="faq-block">
+        <h3>几个你可能想了解的</h3>
+
+        <details>
+            <summary>网站的数据多久更新一次？</summary>
+            <p>大型赛事（如联赛、杯赛）通常在赛后2小时内更新比分与基础统计；小型赛事会稍微滞后，但一般不超过24小时。更新日志在页面底部可以查看。</p>
+        </details>
+        <details>
+            <summary>是否支持手机浏览？</summary>
+            <p>页面针对手机和窄屏做了适配，核心功能在手机上同样顺畅。部分数据表格在极小屏幕上会横向滚动，但阅读体验不受太大影响。</p>
+        </details>
+        <details>
+            <summary>内容可以转载或引用吗？</summary>
+            <p>可以。站内大多数内容属于公开信息整理，引用时注明来自 <a href="https://fengniaoscore.com">蜂鸟电竞</a> 即可。但我们不建议直接批量抓取，毕竟每个页面背后都是手动维护的心力。</p>
+        </details>
+    </div>
+
+    <div class="footnote">
+        <span class="heart">♡</span> 不赶什么浪潮，搭自己的桥，看自己的数据 <span class="heart">♡</span><br>
+        若有疑问或修正建议，欢迎通过站内联系页面告知。<br>
+        <span style="display:inline-block; margin-top:0.8rem;">—— <a href="https://fengniaoscore.com">蜂鸟电竞</a> · 从细节看见数据 ——</span>
+    </div>
+
+</div>
+
+</body>
+</html>
